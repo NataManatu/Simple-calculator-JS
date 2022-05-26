@@ -3,6 +3,7 @@ let calc = document.querySelector(".calc")
 let button = document.querySelector("button")
 
 calc.addEventListener("click", function (event) {
+
     let value = event.target.innerText
 
     let space = " "
@@ -15,7 +16,7 @@ calc.addEventListener("click", function (event) {
             display.value = ""
         }
         else if (value === "=") {
-            display.value += "=" + eval(display.value)
+            display.value = eval(display.value)
         }
         else if (value === "X") {
             display.value += "*"
@@ -29,9 +30,25 @@ calc.addEventListener("click", function (event) {
         }
 
         else if (value === "Delete") {
-            display.value += "Delete"-1  eval(display.value)
-            
+            display.value = display.value.substring(0, display.value.length - 1)
+
         }
+
+        else if (value === "√") {
+            display.value = display.value = Math.sqrt(display.value)
+        }
+
+        else if (value === "square") {
+            display.value = eval(display.value) * eval(display.value)
+        }
+        else if (value === "(") {
+            display.value = eval(display.value)
+        }
+
+        else if (value === ")") {
+            display.value = eval(display.value)
+        }
+
 
         else {
             display.value += value

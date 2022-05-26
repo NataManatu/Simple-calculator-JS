@@ -3,9 +3,8 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-family: sans-serif;
 }
-
 
 .container {
     margin: 0 auto;
@@ -15,39 +14,51 @@ body {
     border-radius: 20px 20px 0 0;
 }
 
+.output {
+    color: white;
+    font-size: 20px;
+    padding: 5px;
+
+}
+
+.title {
+    margin-top: 10px;
+}
+
+input {
+    width: 413px;
+    height: 60px;
+    background-color: rgb(42, 101, 128);
+    color: white;
+    border-style: none;
+    border-radius: 3px;
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+input:hover {
+    outline: none;
+   
+}
+
 .calc {
     display: grid;
     justify-content: center;
     align-content: center;
     grid-template-columns: repeat(4, 100px);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-rows: repeat(7, 100px);
     gap: 5px;
     height: auto;
     padding: 5px;
 }
 
-.output {
-    color: white;
-    font-size: 20px;
 
-}
-
-input {
-    width: 413px;
-    height: 50px;
-    background-color: rgb(42, 101, 128);
-    color: white;
-    border-style: none;
-}
 
 button {
     border-style: none;
     font-size: 20px;
+    border-radius: 3px;
 }
-
-input:hover{
-    outline: none;
-}
-.title{
-    padding: 10px;
+button:hover{
+    background-color: gray;
 }
