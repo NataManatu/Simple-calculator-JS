@@ -45,16 +45,22 @@ calc.addEventListener("click", function (event) {
         else if (value === "Enter") {
             display.value = eval(display.value)
         }
-        
+
         else {
             display.value += value
-        }  
+        }
     }
 })
 
 buttonClear.addEventListener("mouseover", function () {
     buttonClear.style.color = "red"
+    buttonClear.style.background = "pink"
+
 })
 buttonClear.addEventListener("mouseout", function () {
     buttonClear.style.color = "black"
+    buttonClear.style.background = "rgb(239, 239, 239)"
 })
+
+
+
