@@ -9,9 +9,19 @@ calc.addEventListener("click", function (event) {
 
     let space = " "
 
+    // Состояние дублирующегося оператора в инпуте
+    let statusOperator
+
+    // Индекс последнего элемента в строке инпута
+    let nowLastItemIndex
+
+    nowLastItemIndex = display.value.length - 1
+    statusOperator = checkLastItem(nowLastItemIndex)
+
     console.log(event.target.closest("button"))
 
     if (event.target.closest("button") != null) {
+
 
         if (value === "Clear") {
             display.value = ""
@@ -19,16 +29,57 @@ calc.addEventListener("click", function (event) {
         else if (value === "=") {
             display.value = eval(display.value)
         }
-        else if (value === "x") {
-            display.value += "*"
 
-            // alert("X")
-            // display.value = eval(display.innerText)
+        // 
+        else if (value === "x") {
+            if (statusOperator) {
+                let nowStr = display.value
+                nowStr = nowStr.split("")
+                nowStr[nowLastItemIndex] = "*"
+                display.value = nowStr.join("")
+            } else {
+                display.value += "*"
+            }
         }
 
         else if (value === "%") {
             display.value += "%" + space + "=" + space + eval(display.value)
         }
+
+        else if (value === "/") {
+            if (statusOperator) {
+                let nowStr = display.value
+                nowStr = nowStr.split("")
+                nowStr[nowLastItemIndex] = "/"
+                display.value = nowStr.join("")
+            } else {
+                display.value += value
+            }
+        }
+        else if (value === "+") {
+            if (statusOperator) {
+                let nowStr = display.value
+                nowStr = nowStr.split("")
+                nowStr[nowLastItemIndex] = "+"
+                display.value = nowStr.join("")
+            } else {
+                display.value += value
+            }
+        }
+
+        else if (value === "-") {
+
+            if (statusOperator) {
+                let nowStr = display.value
+                nowStr = nowStr.split("")
+                nowStr[nowLastItemIndex] = "-"
+                display.value = nowStr.join("")
+            } else {
+                display.value += value
+            }
+        }
+
+        // 
 
         else if (value === "Delete") {
             display.value = display.value.substring(0, display.value.length - 1)
@@ -51,6 +102,35 @@ calc.addEventListener("click", function (event) {
         }
     }
 })
+
+function checkLastItem(lastItemIDX) {
+    let lastItem = display.value[lastItemIDX]
+
+    let resultOperator
+
+    switch (lastItem) {
+        case "+":
+            resultOperator = true
+            break;
+        case "-":
+            resultOperator = true
+            break;
+        case "*":
+            resultOperator = true
+            break;
+            case "/":
+                resultOperator = true
+                break;
+        default:
+            resultOperator = false
+            break;
+    }
+
+    return resultOperator
+}
+
+
+
 
 buttonClear.addEventListener("mouseover", function () {
     buttonClear.style.color = "red"
