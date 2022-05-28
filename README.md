@@ -1,3 +1,4 @@
-# calculator
-Simple Calculator. Can using number + operator in keyboard
+
+## javascript-simple-calculator
+
 https://github.com/NataManatu/calculator/blob/master/calculator.png
