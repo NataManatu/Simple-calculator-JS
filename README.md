@@ -1,4 +1,4 @@
 
 #  javascript-simple-calculator
 
-https://github.com/NataManatu/calculator/blob/master/calculator.png
+https://raw.githubusercontent.com/NataManatu/calculator/master/calculator.png
